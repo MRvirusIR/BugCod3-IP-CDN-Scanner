@@ -84,21 +84,34 @@ SEMAPHORE_LIMIT = 1000
 ---
 ## 📊 Output Example
 🔹 Terminal Dashboard
+
 ▫️Live scanning speed (CPS)
+
 ▫️Total scanned targets
+
 ▫️Open hosts counter
+
 ▫️CDN distribution stats
+
 
 ---
 ## 🧠 Technical Highlights
 ▫️Fully asynchronous scanning architecture (asyncio)
+
 ▫️Worker-based concurrency model
+
 ▫️Semaphore-based rate limiting
+
 ▫️CIDR expansion engine
+
 ▫️Reverse DNS resolution (PTR lookup)
+
 ▫️Safe schema normalization layer
+
 ▫️Jinja2-based HTML report generator
+
 ▫️Live terminal dashboard using Rich
+
 ---
 ## 📦 Output Files
 After execution:
@@ -109,8 +122,11 @@ report.html
 ---
 ## 📌 Notes
 ▫️Large CIDR ranges may be partially skipped for stability
+
 ▫️DNS and reverse DNS results depend on external resolvers
+
 ▫️Performance depends on system limits and network conditions
+
 ---
 ## 🛡 Disclaimer
 This tool is developed strictly for:
