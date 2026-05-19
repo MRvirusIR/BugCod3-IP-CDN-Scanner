@@ -88,6 +88,7 @@ SEMAPHORE_LIMIT = 1000
 ▫️Total scanned targets
 ▫️Open hosts counter
 ▫️CDN distribution stats
+
 ---
 ## 🧠 Technical Highlights
 ▫️Fully asynchronous scanning architecture (asyncio)
