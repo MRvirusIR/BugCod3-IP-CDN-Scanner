@@ -1,3 +1,20 @@
+<p align="center">
+  <img src="assets/logo.png" width="240">
+</p>
+
+<h1 align="center">BugCod3 IP CDN Scanner</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.13-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/asyncio-high--performance-00e5ff?style=for-the-badge">
+  <img src="https://img.shields.io/badge/CDN-Scanner-00ffaa?style=for-the-badge">
+</p>
+
+<p align="center">
+  High-performance asynchronous CDN/IP intelligence scanner
+  with smart verification engine, latency detection,
+  TLS validation and live analytics dashboard.
+</p>
 # 🧠 BugCod3 IP CDN Scanner
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
