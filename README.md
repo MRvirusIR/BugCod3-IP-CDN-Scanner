@@ -2,7 +2,7 @@
   <img src="assets/logo.png" width="240">
 </p>
 
-<h1 align="center">BugCod3 IP CDN Scanner</h1>
+<h1 align="center">🧠 BugCod3 IP CDN Scanner</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.13-blue?style=for-the-badge">
@@ -15,11 +15,6 @@
   with smart verification engine, latency detection,
   TLS validation and live analytics dashboard.
 </p>
-# 🧠 BugCod3 IP CDN Scanner
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
@@ -158,4 +153,5 @@ The author is not responsible for any misuse of this software.
 Built with ❤️ by BugCod3
 
 T.me/BugCod3
+
 T.me/RootAccessClub
