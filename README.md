@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="assets/logo.png" width="220" alt="BugCod3 logo">
+  <img src="assets/banner.svg" width="860" alt="BugCod3 IP CDN Scanner">
 </p>
-
-<h1 align="center">BugCod3 IP CDN Scanner</h1>
 
 <p align="center">
   <b>Fast async CDN &amp; edge-IP intelligence scanner.</b><br>
@@ -263,6 +261,14 @@ bugcod3 lookup example.com 104.16.1.1            # تشخیص CDN بدون اس�
 ## 🛡 Disclaimer
 
 This tool is for **education, network research and authorised security testing** only. Only scan networks you own or have permission to test. Use `--rate` to stay polite. The author is not responsible for misuse.
+
+## 🎨 Brand
+
+| Icon | Banner |
+|---|---|
+| <img src="assets/logo.svg" width="120" alt="logo"> | <img src="assets/banner.svg" width="420" alt="banner"> |
+
+Vector assets live in [`assets/`](assets). Feel free to use `logo.svg` as an avatar or a GitHub social preview.
 
 ## ⭐ Credits
 
