@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bugcod3-ip-cdn-scanner"
+dynamic = ["version"]
+description = "High-performance async CDN / edge IP intelligence scanner"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "BugCod3" }]
+requires-python = ">=3.9"
+dependencies = ["rich>=13.7", "jinja2>=3.1", "dnspython>=2.6"]
+keywords = ["cdn", "scanner", "cloudflare", "clean-ip", "asyncio", "network", "recon"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Topic :: System :: Networking",
+  "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/MRvirusIR/BugCod3-IP-CDN-Scanner"
+Telegram = "https://t.me/BugCod3"
+
+[project.scripts]
+bugcod3 = "bugcod3.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["bugcod3", "bugcod3.data"]
+
+[tool.setuptools.dynamic]
+version = { attr = "bugcod3.__version__" }
+
+[tool.setuptools.package-data]
+bugcod3 = ["templates/*.html"]
+"bugcod3.data" = ["*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
