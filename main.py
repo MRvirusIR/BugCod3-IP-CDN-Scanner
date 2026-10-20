@@ -1,9 +1,7 @@
-from core.engine import ScanEngine
+#!/usr/bin/env python3
+"""Backwards-compatible entry point: ``python3 main.py [options]``."""
+
+from bugcod3.cli import main
 
 if __name__ == "__main__":
-
-    engine = ScanEngine(
-        input_file="data/targets.txt"
-    )
-
-    engine.run()
+    raise SystemExit(main())

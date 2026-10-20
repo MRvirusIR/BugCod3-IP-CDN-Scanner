@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:">
+<title>BugCod3 Scan Report · {{ meta.generated }}</title>
+<style>
+:root{--bg:#070b12;--panel:#0d1420;--panel2:#111b2b;--line:#1c2a3f;--txt:#dbe7f5;--mut:#7c8ca3;--acc:#22d3ee;--acc2:#a78bfa;--ok:#34d399;--warn:#fbbf24;--bad:#f87171}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#0f2a3d 0,transparent 60%),radial-gradient(900px 500px at 110% 0,#24164a 0,transparent 55%),var(--bg);color:var(--txt);font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
+.wrap{max-width:1400px;margin:0 auto;padding:32px 24px 64px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+h1{margin:0;font-size:26px;letter-spacing:.3px}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);font-size:13px}
+.pill{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--mut);font-size:12px;margin-left:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:22px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card .k{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.card .v{font-size:26px;font-weight:700;margin-top:4px}
+.grid2{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:22px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.panel h2{font-size:14px;margin:0 0 14px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.bar{display:grid;grid-template-columns:130px 1fr 60px;align-items:center;gap:10px;margin:8px 0}
+.bar .t{height:10px;background:#0a111c;border-radius:6px;overflow:hidden}
+.bar .f{height:100%;border-radius:6px}
+.bar .n{text-align:right;color:var(--mut);font-variant-numeric:tabular-nums}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+input,select,button{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit}
+input{flex:1;min-width:220px}
+button{cursor:pointer}button:hover{border-color:var(--acc)}
+.tbl{overflow:auto;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{position:sticky;top:0;background:#0b1320;color:var(--mut);text-align:left;font-weight:600;padding:11px 12px;border-bottom:1px solid var(--line);cursor:pointer;user-select:none;white-space:nowrap}
+th:hover{color:var(--txt)}th.s-asc::after{content:" ▲"}th.s-desc::after{content:" ▼"}
+td{padding:10px 12px;border-bottom:1px solid #121c2b;white-space:nowrap}
+tr:hover td{background:#0f1a2a}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.badge{display:inline-block;padding:3px 9px;border-radius:7px;font-size:12px;font-weight:600;color:#0b0f17}
+.score{display:inline-block;min-width:44px;text-align:center;padding:2px 8px;border-radius:7px;font-weight:700}
+.muted{color:var(--mut)}
+.lat-good{color:var(--ok)}.lat-mid{color:var(--warn)}.lat-bad{color:var(--bad)}
+footer{margin-top:28px;color:var(--mut);font-size:12px;text-align:center}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--acc);color:#04111a;padding:10px 16px;border-radius:10px;font-weight:600;opacity:0;transition:.2s}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" aria-hidden="true" style="vertical-align:middle;margin-right:10px" viewBox="0 0 512 512">
+<defs>
+  <linearGradient id="g-main" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#22d3ee"/><stop offset="0.55" stop-color="#60a5fa"/><stop offset="1" stop-color="#a78bfa"/>
+  </linearGradient>
+  <linearGradient id="g-text" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#67e8f9"/><stop offset="0.5" stop-color="#93c5fd"/><stop offset="1" stop-color="#c4b5fd"/>
+  </linearGradient>
+  <linearGradient id="g-bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0f1b2e"/><stop offset="1" stop-color="#070b12"/>
+  </linearGradient>
+  <radialGradient id="g-core" cx="0.5" cy="0.45" r="0.6">
+    <stop offset="0" stop-color="#1e3a5f"/><stop offset="1" stop-color="#0a1220" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="g-sweep" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0.55"/>
+  </linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+</defs>
+<path d="M226.6,43.0 Q256.0,26.0 285.4,43.0 L425.7,124.0 Q455.2,141.0 455.2,175.0 L455.2,337.0 Q455.2,371.0 425.7,388.0 L285.4,469.0 Q256.0,486.0 226.6,469.0 L86.3,388.0 Q56.8,371.0 56.8,337.0 L56.8,175.0 Q56.8,141.0 86.3,124.0Z" fill="url(#g-bg)"/>
+<path d="M226.6,43.0 Q256.0,26.0 285.4,43.0 L425.7,124.0 Q455.2,141.0 455.2,175.0 L455.2,337.0 Q455.2,371.0 425.7,388.0 L285.4,469.0 Q256.0,486.0 226.6,469.0 L86.3,388.0 Q56.8,371.0 56.8,337.0 L56.8,175.0 Q56.8,141.0 86.3,124.0Z" fill="none" stroke="url(#g-main)" stroke-width="12.0"/>
+<path d="M233.5,61.0 Q256.0,48.0 278.5,61.0 L413.6,139.0 Q436.1,152.0 436.1,178.0 L436.1,334.0 Q436.1,360.0 413.6,373.0 L278.5,451.0 Q256.0,464.0 233.5,451.0 L98.4,373.0 Q75.9,360.0 75.9,334.0 L75.9,178.0 Q75.9,152.0 98.4,139.0Z" fill="none" stroke="#22d3ee" stroke-opacity="0.18" stroke-width="2.0"/>
+<circle cx="256" cy="256" r="150.0" fill="url(#g-core)"/>
+<g fill="none" stroke="#38bdf8" stroke-opacity="0.32" stroke-width="2.2">
+<circle cx="256" cy="256" r="140.0"/>
+<ellipse cx="256" cy="256" rx="58.8" ry="140.0"/>
+<ellipse cx="256" cy="256" rx="112.0" ry="140.0"/>
+<line x1="116.0" y1="256" x2="396.0" y2="256"/>
+<ellipse cx="256" cy="256" rx="140.0" ry="53.2"/>
+</g>
+<path d="M256,256 L231.7,118.1 A140.0,140.0 0 0 1 363.2,166.0 Z" fill="url(#g-sweep)" opacity="0.9"/>
+<line x1="256" y1="256" x2="363.2" y2="166.0" stroke="#67e8f9" stroke-width="3.0" stroke-linecap="round" filter="url(#glow)"/>
+<g stroke="url(#g-main)" stroke-width="6.0" stroke-linecap="round"><line x1="404.0" y1="256.0" x2="426.0" y2="256.0"/><line x1="256.0" y1="404.0" x2="256.0" y2="426.0"/><line x1="108.0" y1="256.0" x2="86.0" y2="256.0"/><line x1="256.0" y1="108.0" x2="256.0" y2="86.0"/></g>
+<g stroke="#a78bfa" stroke-opacity="0.45" stroke-width="1.8" stroke-dasharray="4.0 5.0"><line x1="169.2" y1="179.0" x2="298.0" y2="132.8"/><line x1="298.0" y1="132.8" x2="354.0" y2="214.0"/><line x1="354.0" y1="214.0" x2="333.0" y2="342.8"/><line x1="333.0" y1="342.8" x2="263.0" y2="384.8"/><line x1="263.0" y1="384.8" x2="146.8" y2="298.0"/><line x1="146.8" y1="298.0" x2="169.2" y2="179.0"/></g>
+<circle cx="169.2" cy="179.0" r="7.0" fill="#22d3ee" filter="url(#glow)"/>
+<circle cx="169.2" cy="179.0" r="3.0" fill="#e0f2fe"/>
+<circle cx="354.0" cy="214.0" r="7.0" fill="#a78bfa" filter="url(#glow)"/>
+<circle cx="354.0" cy="214.0" r="3.0" fill="#e0f2fe"/>
+<circle cx="333.0" cy="342.8" r="7.0" fill="#22d3ee" filter="url(#glow)"/>
+<circle cx="333.0" cy="342.8" r="3.0" fill="#e0f2fe"/>
+<circle cx="146.8" cy="298.0" r="7.0" fill="#a78bfa" filter="url(#glow)"/>
+<circle cx="146.8" cy="298.0" r="3.0" fill="#e0f2fe"/>
+<circle cx="263.0" cy="384.8" r="7.0" fill="#22d3ee" filter="url(#glow)"/>
+<circle cx="263.0" cy="384.8" r="3.0" fill="#e0f2fe"/>
+<circle cx="298.0" cy="132.8" r="7.0" fill="#a78bfa" filter="url(#glow)"/>
+<circle cx="298.0" cy="132.8" r="3.0" fill="#e0f2fe"/>
+<g filter="url(#glow)">
+<path d="M234.0,256.0 L208.0,240.0 L194.0,216.0 M230.0,278.0 L200.0,276.0 L182.0,266.0 M234.0,300.0 L210.0,318.0 L198.0,344.0 M278.0,256.0 L304.0,240.0 L318.0,216.0 M282.0,278.0 L312.0,276.0 L330.0,266.0 M278.0,300.0 L302.0,318.0 L314.0,344.0" fill="none" stroke="url(#g-main)" stroke-width="7.0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M246.0,212.0 Q234.0,184.0 216.0,178.0 M266.0,212.0 Q278.0,184.0 296.0,178.0" fill="none" stroke="url(#g-main)" stroke-width="5.0" stroke-linecap="round"/>
+<circle cx="216.0" cy="178.0" r="5.0" fill="#67e8f9"/><circle cx="296.0" cy="178.0" r="5.0" fill="#c4b5fd"/>
+<ellipse cx="256" cy="224.0" rx="24.0" ry="18.0" fill="#0b1626" stroke="url(#g-main)" stroke-width="5.0"/>
+<ellipse cx="256" cy="280.0" rx="38.0" ry="50.0" fill="#0b1626" stroke="url(#g-main)" stroke-width="6.0"/>
+</g>
+<line x1="256" y1="236.0" x2="256" y2="326.0" stroke="url(#g-main)" stroke-width="3.5"/>
+<path d="M248.0,258.0 h-14.0 v16.0 M248.0,292.0 h-18.0 M264.0,266.0 h18.0 M264.0,298.0 h12.0 v-12.0" fill="none" stroke="#38bdf8" stroke-opacity="0.75" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="234.0" cy="274.0" r="3.0" fill="#a5f3fc"/>
+<circle cx="230.0" cy="292.0" r="3.0" fill="#a5f3fc"/>
+<circle cx="282.0" cy="266.0" r="3.0" fill="#a5f3fc"/>
+<circle cx="276.0" cy="286.0" r="3.0" fill="#a5f3fc"/>
+<circle cx="246.0" cy="222.0" r="5.5" fill="#34d399" filter="url(#glow)"/>
+<circle cx="266.0" cy="222.0" r="5.5" fill="#34d399" filter="url(#glow)"/>
+</svg><span>BugCod3</span> IP CDN Scanner</h1>
+      <div class="sub">Generated {{ meta.generated }} <span class="pill">v{{ meta.version }}</span><span class="pill">CDN DB: {{ meta.cdn_db_updated }}</span></div>
+    </div>
+  </header>
+
+  <section class="cards">
+    <div class="card"><div class="k">Scanned</div><div class="v">{{ "{:,}".format(meta.scanned) }}</div></div>
+    <div class="card"><div class="k">Alive</div><div class="v" style="color:var(--ok)">{{ "{:,}".format(meta.alive) }}</div></div>
+    <div class="card"><div class="k">CDN providers</div><div class="v">{{ meta.cdns|length }}</div></div>
+    <div class="card"><div class="k">Speed</div><div class="v">{{ meta.rate }}<span class="muted" style="font-size:14px"> ip/s</span></div></div>
+    <div class="card"><div class="k">Duration</div><div class="v">{{ meta.elapsed }}<span class="muted" style="font-size:14px"> s</span></div></div>
+  </section>
+
+  <section class="grid2">
+    <div class="panel"><h2>CDN distribution</h2><div id="cdnbars"></div></div>
+    <div class="panel"><h2>Open ports</h2><div id="portbars"></div></div>
+  </section>
+
+  <div class="toolbar">
+    <input id="q" placeholder="Search IP, ASN, org, PTR, country, colo…" autocomplete="off">
+    <select id="cdn"><option value="">All CDNs</option></select>
+    <button id="copy" title="Copy visible IPs">📋 Copy IPs</button>
+    <button id="csv" title="Download visible rows as CSV">⬇ CSV</button>
+  </div>
+
+  <div class="tbl">
+    <table>
+      <thead><tr>
+        <th data-k="score" data-n="1">Score</th>
+        <th data-k="ip">IP</th>
+        <th data-k="latency" data-n="1">Latency</th>
+        <th data-k="cdn">CDN</th>
+        <th data-k="colo">PoP</th>
+        <th data-k="open_ports">Ports</th>
+        <th data-k="status" data-n="1">HTTP</th>
+        <th data-k="tls_version">TLS</th>
+        <th data-k="asn" data-n="1">ASN</th>
+        <th data-k="asn_org">Organisation</th>
+        <th data-k="country">CC</th>
+        <th data-k="ptr">PTR / Host</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="sub" id="count"></p>
+
+  <footer>Built with ❤️ by BugCod3 · For authorised testing and research only</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script id="data" type="application/json">{{ rows|tojson }}</script>
+<script id="meta" type="application/json">{{ meta|tojson }}</script>
+<script>
+(function(){
+  "use strict";
+  const rows = JSON.parse(document.getElementById("data").textContent);
+  const meta = JSON.parse(document.getElementById("meta").textContent);
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, props, text) => { const e = document.createElement(tag); if (props) Object.assign(e, props); if (text !== undefined && text !== null) e.textContent = String(text); return e; };
+  const safeColor = (c) => /^#[0-9a-fA-F]{3,8}$/.test(c || "") ? c : "#64748b";
+  const colorOf = {}; rows.forEach(r => colorOf[r.cdn] = safeColor(r.cdn_color));
+
+  function bars(target, obj, colors){
+    const entries = Object.entries(obj); const max = Math.max(1, ...entries.map(e => e[1]));
+    const box = $(target);
+    if (!entries.length) { box.appendChild(el("div", {className: "muted"}, "No data")); return; }
+    entries.forEach(([k, v]) => {
+      const row = el("div", {className: "bar"});
+      row.appendChild(el("div", null, k));
+      const t = el("div", {className: "t"}); const f = el("div", {className: "f"});
+      f.style.width = (v / max * 100).toFixed(1) + "%"; f.style.background = colors ? (colors[k] || "#64748b") : "linear-gradient(90deg,#22d3ee,#a78bfa)";
+      t.appendChild(f); row.appendChild(t); row.appendChild(el("div", {className: "n"}, v)); box.appendChild(row);
+    });
+  }
+  bars("cdnbars", meta.cdns, colorOf);
+  bars("portbars", meta.ports, null);
+
+  const sel = $("cdn");
+  Object.keys(meta.cdns).forEach(c => sel.appendChild(el("option", {value: c}, c)));
+
+  let sortKey = "score", sortDir = -1, view = rows.slice();
+
+  function latClass(v){ if (v == null) return "muted"; return v < 80 ? "lat-good" : v < 200 ? "lat-mid" : "lat-bad"; }
+  function scoreStyle(s){ const h = Math.max(0, Math.min(120, (s || 0) * 1.2)); return `background:hsl(${h} 70% 45% / .18);color:hsl(${h} 80% 65%)`; }
+
+  function render(){
+    const q = $("q").value.trim().toLowerCase(); const c = sel.value;
+    view = rows.filter(r => (!c || r.cdn === c) && (!q || Object.values(r).some(v => v != null && String(v).toLowerCase().includes(q))));
+    const n = document.querySelector(`th[data-k="${sortKey}"]`)?.dataset.n;
+    view.sort((a, b) => {
+      let x = a[sortKey], y = b[sortKey];
+      if (x == null || x === "") return 1; if (y == null || y === "") return -1;
+      if (n) return (Number(x) - Number(y)) * sortDir;
+      return String(x).localeCompare(String(y), undefined, {numeric: true}) * sortDir;
+    });
+    const body = $("rows"); body.textContent = "";
+    const frag = document.createDocumentFragment();
+    view.slice(0, 5000).forEach(r => {
+      const tr = el("tr");
+      const sc = el("td"); const sp = el("span", {className: "score"}, r.score ?? "–"); sp.setAttribute("style", scoreStyle(r.score)); sc.appendChild(sp); tr.appendChild(sc);
+      tr.appendChild(el("td", {className: "mono"}, r.ip));
+      tr.appendChild(el("td", {className: "mono " + latClass(r.latency)}, r.latency != null ? r.latency + " ms" : "–"));
+      const cd = el("td"); const b = el("span", {className: "badge"}, r.cdn); b.style.background = safeColor(r.cdn_color);
+      if (r.cdn_method) b.title = "detected by " + r.cdn_method; cd.appendChild(b); tr.appendChild(cd);
+      tr.appendChild(el("td", {className: "mono"}, r.colo || "–"));
+      tr.appendChild(el("td", {className: "mono"}, r.open_ports));
+      tr.appendChild(el("td", {className: "mono"}, r.status ?? "–"));
+      tr.appendChild(el("td", {className: "muted"}, r.tls_version || "–"));
+      tr.appendChild(el("td", {className: "mono"}, r.asn ? "AS" + r.asn : "–"));
+      tr.appendChild(el("td", null, r.asn_org || "–"));
+      tr.appendChild(el("td", null, r.country || "–"));
+      tr.appendChild(el("td", {className: "muted"}, r.ptr || r.hostname || "–"));
+      frag.appendChild(tr);
+    });
+    body.appendChild(frag);
+    $("count").textContent = `Showing ${Math.min(view.length, 5000).toLocaleString()} of ${view.length.toLocaleString()} matching rows (${rows.length.toLocaleString()} total)`;
+    document.querySelectorAll("th").forEach(th => th.classList.toggle("s-asc", th.dataset.k === sortKey && sortDir === 1));
+    document.querySelectorAll("th").forEach(th => th.classList.toggle("s-desc", th.dataset.k === sortKey && sortDir === -1));
+  }
+
+  function toast(msg){ const t = $("toast"); t.textContent = msg; t.classList.add("on"); setTimeout(() => t.classList.remove("on"), 1600); }
+  document.querySelectorAll("th").forEach(th => th.addEventListener("click", () => { if (sortKey === th.dataset.k) sortDir *= -1; else { sortKey = th.dataset.k; sortDir = th.dataset.n ? -1 : 1; if (sortKey === "latency") sortDir = 1; } render(); }));
+  $("q").addEventListener("input", render); sel.addEventListener("change", render);
+  $("copy").addEventListener("click", () => { const txt = view.map(r => r.ip).join("\n"); navigator.clipboard?.writeText(txt).then(() => toast(`Copied ${view.length} IPs`), () => toast("Clipboard blocked")); });
+  $("csv").addEventListener("click", () => {
+    const keys = ["ip","score","latency","cdn","colo","open_ports","status","tls_version","asn","asn_org","country","ptr","hostname"];
+    const esc = v => { v = v == null ? "" : String(v); if (/^[=+\-@]/.test(v)) v = "'" + v; return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+    const csv = [keys.join(",")].concat(view.map(r => keys.map(k => esc(r[k])).join(","))).join("\n");
+    const a = el("a"); a.href = URL.createObjectURL(new Blob([csv], {type: "text/csv"})); a.download = "bugcod3-results.csv"; a.click();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
