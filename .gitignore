@@ -7,6 +7,6 @@ dist/
 venv/
 .pytest_cache/
 results/
-report.html
-report.json
+/report.html
+/report.json
 *.jsonl
